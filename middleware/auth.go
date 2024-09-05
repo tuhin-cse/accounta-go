@@ -9,7 +9,7 @@ import (
 )
 
 type AuthUser struct {
-	ID int `json:"id" binding:"required"`
+	ID uint `json:"id" binding:"required"`
 }
 
 func IsAuthenticated(c *gin.Context) {
@@ -22,7 +22,7 @@ func IsAuthenticated(c *gin.Context) {
 		})
 		if err == nil {
 			if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-				id := int(claims["id"].(float64))
+				id := uint(claims["id"].(float64))
 				if float64(time.Now().Unix()) < claims["exp"].(float64) {
 					c.Set("user", AuthUser{
 						ID: id,

@@ -49,7 +49,7 @@ func GetDB() *gorm.DB {
 }
 
 func MigrateDB() {
-	err := db.AutoMigrate(&models.User{})
+	err := db.AutoMigrate(&models.User{}, &models.Category{})
 	if err != nil {
 		return
 	}

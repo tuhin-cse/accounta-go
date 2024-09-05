@@ -30,4 +30,5 @@ go run main.go
 ```
 
 
+4. Postman collection is available [here](https://documenter.getpostman.com/view/34577808/2sAXjQ1qDF)
 

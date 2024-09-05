@@ -11,11 +11,12 @@ import (
 )
 
 type User struct {
-	ID       uint   `gorm:"primary_key" json:"id"`
-	Name     string `gorm:"type:varchar(255);NOT NULL" json:"name" binding:"required"`
-	Email    string `gorm:"type:varchar(255);NOT NULL;UNIQUE;UNIQUE_INDEX" json:"email" binding:"required"`
-	Password string `gorm:"type:varchar(255);NOT NULL" json:"password,omitempty" binding:"required"`
+	ID       uint   `gorm:"primaryKey" json:"id"`
+	Name     string `gorm:"type:varchar(255);not null" json:"name" binding:"required"`
+	Email    string `gorm:"type:varchar(255);not null;uniqueIndex" json:"email" binding:"required"`
+	Password string `gorm:"type:varchar(255);not null" json:"password,omitempty" binding:"required"`
 	Address  string `gorm:"type:string;" json:"address"`
+	Role     string `gorm:"type:varchar(255);NOT NULL" json:"role"`
 }
 
 func (u *User) BeforeSave(scope *gorm.DB) (err error) {

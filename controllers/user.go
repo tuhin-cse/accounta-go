@@ -14,6 +14,7 @@ func UserRegister(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	user.Role = "user"
 	var db = config.GetDB()
 	var d = db.Create(&user)
 	if d.Error != nil {
